@@ -9,7 +9,7 @@
 // Global Variables
 
 var theNumber = "100"
-
+var theDigits = "787-309-3194";
 
 
 
@@ -30,6 +30,24 @@ var stringToNumber = function(number){
 };
 
 
+//Verify if string entered is a telephone number in the right format Function
+
+var telephoneChecker = function(telNumber){
+    
+    if (telNumber.length === 12 || telNumber.charAt(3 && 7) === "-"){
+        
+        var itsCorrect = true;
+        
+        return itsCorrect;
+    
+        } else {
+        
+        var notCorrect = false;  
+    
+        return notCorrect;
+    
+        }
+};
 
 
 
@@ -37,3 +55,6 @@ var stringToNumber = function(number){
 
 var outComesNumber = stringToNumber(theNumber);
 console.log("The number is " + outComesNumber);
+
+var verifyTel = telephoneChecker(theDigits);
+console.log("The telephone number is " + verifyTel);
