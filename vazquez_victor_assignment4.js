@@ -13,6 +13,9 @@ var theDigits = "787-309-3194";
 var theEmail = "victorvazco@fullsail.com";
 var theDecimal = 56.8796545;
 var theWebSite = "https://www.fullsail.com";
+var theDate = new Date("December 01, 1981");
+var theDateToday = new Date();
+var theTypeDate = "hours";//tested "days" as well
 var theSeparate = "a,b,c";
 var separateComa = ",";
 var separateSlash = "/";
@@ -120,7 +123,7 @@ var changeSeparator = function(stringToSeparate,coma,slash){
 
 
 
-//Verify if web address is true Function
+//Verify if URL starts with https:// or http:// Function
 
 var verifyWeb = function(address){
     
@@ -141,6 +144,48 @@ var verifyWeb = function(address){
 
 };
 
+
+
+
+
+//Compare Dates Funktion
+
+var Dating = function(present,past,time){
+    
+    if ( time === "days" ) {
+    
+    var compareDates = (theDateToday - theDate)/1000/60/60/24
+    
+    var roundedUp = Math.round(compareDates);
+    
+    } else if (time === "hours") {
+        
+        var compareDates = (theDateToday - theDate)/1000/60/60
+    
+    var roundedUp = Math.round(compareDates);
+    
+    }
+    return roundedUp;
+
+};
+
+
+
+
+
+
+//String Separator Function NOT WORKING YET
+
+var changeSeparator = function(stringToSeparate,coma,slash){
+    
+    var stop = stringToSeparate.length;
+    
+    if (stringToSeparate.substring(0,stop) === ","){
+        
+       console.log("somein");
+        
+    }
+};
 
 
 //Add only the number characters in an array that includes strings NOT WORKING in my mind nor here YET!
@@ -167,10 +212,15 @@ var emailChecker = checkEmail(theEmail);
 console.log("This is a " + emailChecker + " email address.");
 
 var decimalator = keepAdecimal(theDecimal,3);
-console.log("The decimal moved three spaces: " + decimalator + ".");
+console.log("The decimal moved three spaces: " + decimalator + " .");
 
 var webolator = verifyWeb(theWebSite);
 console.log("This is a " + webolator + ' website address');
+
+var dateonator = Dating(theDateToday,theDate,theTypeDate);
+console.log("I have been alive for " + dateonator + " days." );
+
+
 
 //var replacer = changeSeparator(theSeparate,separateComa,separateSlash);
 //console.log("This is the finished product, " + changeSeparator);
