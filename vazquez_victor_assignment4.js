@@ -43,7 +43,7 @@ var stringToNumber = function(number){
 
 var telephoneChecker = function(telNumber){
     
-    if (telNumber.length === 12 || telNumber.charAt(3 && 7) === "-"){
+    if (telNumber.length === 12 && telNumber.charAt(3 && 7) === "-"){
         
         var itsCorrect = true;
         
@@ -123,9 +123,6 @@ var changeSeparator = function(stringToSeparate,coma,slash){
 //Verify if web address is true Function
 
 var verifyWeb = function(address){
-    
-    var begin = address.lastIndexOf(".");
-    var finish = address.length;
     
     if (address.substring(0,7) === "https://" || "http://"){
           
