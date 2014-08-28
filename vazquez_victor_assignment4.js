@@ -12,14 +12,11 @@ var theNumber = "100"
 var theDigits = "787-309-3194";
 var theEmail = "victorvazco@fullsail.com";
 var theDecimal = 56.8796545;
+var theAmountSpaces = 3;
 var theWebSite = "https://www.fullsail.com";
-var theDate = new Date("December 01, 1981");
+var theDate = new Date("July 17 1983");
 var theDateToday = new Date();
 var theTypeDate = "hours";//tested "days" as well
-var theSeparate = "a,b,c";
-var separateComa = ",";
-var separateSlash = "/";
-var theArrayMath = ["4","78",89,45,"What Up!"];
 
 
 //Enter a String and return a Number
@@ -65,17 +62,20 @@ var telephoneChecker = function(telNumber){
 
 
 
-//Verify if email entered is true
+//Verify if email entered is true // NOT WORKING // want to include @ is included
 
 var checkEmail = function(email){
     
     var stop = email.length;
-    
     var beginEnd = email.lastIndexOf(".");
     
-
+    if (email.indexOf("@") == -1 ) {
+        
+        var nonCorrect1 = false;
+        
+        return nonCorrect1;
     
-    if (email.substring(0,stop) === "@" || email.substring(beginEnd,stop) === ".com"){
+    } else if (email.substring(beginEnd,stop) === "."){
         
         var yesCorrect = true;
         return yesCorrect;
@@ -95,28 +95,12 @@ var checkEmail = function(email){
 
 //Decimal Function
 
-var keepAdecimal = function(numberToCHange){
+var keepAdecimal = function(numberToCHange,decimalSpaces){
     
-    var decimal = numberToCHange.toFixed(3)
+    var decimal = numberToCHange.toFixed(decimalSpaces)
     
     return decimal;
     
-};
-
-
-
-
-//String Separator Function NOT WORKING YET
-
-var changeSeparator = function(stringToSeparate,coma,slash){
-    
-    var stop = stringToSeparate.length;
-    
-    if (stringToSeparate.substring(0,stop) === ","){
-        
-       console.log("somein");
-        
-    }
 };
 
 
@@ -174,31 +158,6 @@ var Dating = function(present,past,time){
 
 
 
-//String Separator Function NOT WORKING YET
-
-var changeSeparator = function(stringToSeparate,coma,slash){
-    
-    var stop = stringToSeparate.length;
-    
-    if (stringToSeparate.substring(0,stop) === ","){
-        
-       console.log("somein");
-        
-    }
-};
-
-
-//Add only the number characters in an array that includes strings NOT WORKING in my mind nor here YET!
-
-var addArray = function(str){
-    
- 
-    
-};
-
-
-
-
 
 //Main Code/Callers
 
@@ -211,7 +170,7 @@ console.log("The telephone number is " + verifyTel);
 var emailChecker = checkEmail(theEmail);
 console.log("This is a " + emailChecker + " email address.");
 
-var decimalator = keepAdecimal(theDecimal,3);
+var decimalator = keepAdecimal(theDecimal,theAmountSpaces);
 console.log("The decimal moved three spaces: " + decimalator + " .");
 
 var webolator = verifyWeb(theWebSite);
@@ -222,10 +181,4 @@ console.log("I have been alive for " + dateonator + " days." );
 
 
 
-//var replacer = changeSeparator(theSeparate,separateComa,separateSlash);
-//console.log("This is the finished product, " + changeSeparator);
 
-
-
-//var theMathelator =addArray(theArrayMath);
-//console.log("The total is " + theMathelator);
