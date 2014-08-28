@@ -12,6 +12,7 @@ var theNumber = "100"
 var theDigits = "787-309-3194";
 var theEmail = "victorvazco@fullsail.com";
 var theDecimal = 56.8796545;
+var theWebSite = "https://www.fullsail.com";
 var theSeparate = "a,b,c";
 var separateComa = ",";
 var separateSlash = "/";
@@ -61,7 +62,7 @@ var telephoneChecker = function(telNumber){
 
 
 
-//Verify if email entered is correct
+//Verify if email entered is true
 
 var checkEmail = function(email){
     
@@ -102,26 +103,54 @@ var keepAdecimal = function(numberToCHange){
 
 
 
-//String Separator Function
+//String Separator Function NOT WORKING YET
 
 var changeSeparator = function(stringToSeparate,coma,slash){
     
-    var string = stringToSeparate;
+    var stop = stringToSeparate.length;
     
-    var replace = string.replace(separateComa,separateSlash)
-    
-    return replace;
+    if (stringToSeparate.substring(0,stop) === ","){
+        
+       console.log("somein");
+        
+    }
 };
 
 
 
-//Add only the number characters in an array that includes strings NOT WORKING in my mind YET!
 
-var addArray = function(arrayInfo){
+
+//Verify if web address is true Function
+
+var verifyWeb = function(address){
     
-    var theMath = arrayInfo[0] + arrayInfo[1] + arrayInfo[2] + arrayInfo[3] + arrayInfo[4];
+    var begin = address.lastIndexOf(".");
+    var finish = address.length;
     
-    return theMath;
+    if (address.substring(0,7) === "https://" || "http://"){
+          
+    var confirmed = true;
+        
+    return confirmed;
+
+    } else {
+        
+    var denied = false;  
+        
+    }
+    
+    return denied;
+
+
+};
+
+
+
+//Add only the number characters in an array that includes strings NOT WORKING in my mind nor here YET!
+
+var addArray = function(str){
+    
+ 
     
 };
 
@@ -143,10 +172,13 @@ console.log("This is a " + emailChecker + " email address.");
 var decimalator = keepAdecimal(theDecimal,3);
 console.log("The decimal moved three spaces: " + decimalator + ".");
 
-var replacer = changeSeparator(theSeparate,separateComa,separateSlash);
-console.log("This is the finished product, " + changeSeparator);
+var webolator = verifyWeb(theWebSite);
+console.log("This is a " + webolator + ' website address');
+
+//var replacer = changeSeparator(theSeparate,separateComa,separateSlash);
+//console.log("This is the finished product, " + changeSeparator);
 
 
 
-var theMathelator =addArray(theArrayMath);
-console.log("The total is " + theMathelator);
+//var theMathelator =addArray(theArrayMath);
+//console.log("The total is " + theMathelator);
